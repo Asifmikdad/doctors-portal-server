@@ -24,14 +24,24 @@ async function run() {
 
 
 
-
-
     app.get('/service', async (req, res) => {
       const query = {};
       const cursor = serviceCollection.find(query);
       const services = await cursor.toArray();
       res.send(services);
     });
+
+    
+/** 
+api naming convention
+app.get('\booking') // get all bookings in this collection or get more then one or by filter
+app.get('/booking') // get a specific booking
+app.post('/booking') // add a new booking
+app.patch('/booking/:id') // 
+
+
+*/
+
 
 
 app.post('/booking', async(req, res) => {
